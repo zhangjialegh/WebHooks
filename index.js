@@ -9,9 +9,7 @@ app.use(bodyParser({
 }))
 
 //  路由
-app.use(require('./routers/wxlogin.js').routes())
-app.use(require('./routers/user.js').routes())
-app.use(require('./routers/cards.js').routes())
+app.use(require('./routers/index.js').routes())
 
 
 app.listen(config[NODE_ENV].port)

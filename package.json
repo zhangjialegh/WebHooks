@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev node index.js",
+    "prod": "node index.js"
+  },
   "dependencies": {
+    "cross-env": "^5.2.0",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0"
