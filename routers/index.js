@@ -1,10 +1,9 @@
-const router = require('koa-router')();
+const Router = require('koa-router');
 const controller = require('../controller')
+const router = new Router({
+    prefix: '/webhooks'
+})
 
 router.get('/publish', controller.GitlabPublish)
-// router.get('/api/cards/list', controller.findAllCards)
-// router.get('/api/card/detail', controller.findOneCard)
-// router.post('/api/card/update', controller.updateCard)
-// router.get('/api/card/delete', controller.deleteCard)
 
 module.exports = router
