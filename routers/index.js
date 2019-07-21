@@ -1,7 +1,7 @@
 const Router = require('koa-router');
 const controller = require('../controller')
 const router = new Router({
-    prefix: '/webhooks'
+  prefix: '/webhooks'
 })
 
 // test 本地测试接口
