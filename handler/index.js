@@ -1,8 +1,8 @@
 const exec = require('child_process').exec;
 
-exports.AutoPublish = (cmd) => {
+exports.AutoPublish = (cmd, path, app) => {
     return new Promise((resolve, reject) => {
-        const child = exec(`sh ${cmd}`)
+        const child = exec(`sh ${cmd} ${path} ${app}`)
         child.stdout.on('data',(buffer) => {
             console.log(buffer.toString())
         })

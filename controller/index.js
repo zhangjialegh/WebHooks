@@ -1,12 +1,12 @@
 const Handler = require('../handler')
 const path = require('path')
 const cmd = path.join(__dirname, '../deploy/deploy-test.sh')
+const pathRoute = '/srv/WebHooks'
+const appName = 'app'
 
 exports.GitlabPublish = async (ctx) => {
-    console.log('1111')
     try {
-        const text = await Handler.AutoPublish(cmd)
-        console.log(text, 'text')
+        const text = await Handler.AutoPublish(cmd, pathRoute, appName)
         ctx.body = {
             code: 200,
             success: true,
