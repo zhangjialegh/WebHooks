@@ -1,11 +1,18 @@
-const spawn = require('child_process').spawn;
+const exec = require('child_process').exec;
 
-exports.AutoPublish = (cmd, args) => {
+exports.AutoPublish = (cmd) => {
     return new Promise((resolve, reject) => {
-        const child = spawn(cmd, args)
-        let res = ''
-        child.stdout.on('data', buffer => res += buffer)
-        child.stdout.on('end', () => resolve(res))
-    })
+        const child = exec(`sh ${cmd}`)
+        child.stdout.on('data',(buffer) => {
+            console.log(buffer.toString())
+        })
 
+        child.stdout.on('end',() => {
+            resolve('Finished')
+        })
+
+        child.stdout.on('error',(err) => {
+            reject(err)
+        })
+    })
 }
