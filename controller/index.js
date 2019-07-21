@@ -1,10 +1,13 @@
 const Handler = require('../handler')
 const path = require('path')
 const cmd = path.join(__dirname, '../deploy/deploy-test.sh')
-const pathRoute = '/srv/WebHooks'
-const appName = 'app'
 
-exports.GitlabPublish = async (ctx) => {
+exports.SecretPublish = async (ctx) => {
+    // TODO: 添加参数验证，保证有效的自动部署触发
+    // ...
+
+    const pathRoute = '/srv/websecretBackend'
+    const appName = 'index'
     try {
         const text = await Handler.AutoPublish(cmd, pathRoute, appName)
         ctx.body = {

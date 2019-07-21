@@ -4,6 +4,10 @@ const router = new Router({
     prefix: '/webhooks'
 })
 
-router.post('/publish', controller.GitlabPublish)
+// project1 websecret
+router.post('/publish/websecret', controller.SecretPublish)
+
+// TODO: project2
+// router.post('/publish/project2', controller.Project2Publish)
 
 module.exports = router
