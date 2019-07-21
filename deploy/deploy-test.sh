@@ -20,6 +20,7 @@ echo "Service Restarted!"
 else
 pm2 start "$2.js"
 echo "Service Started!"
+fi
 
 echo "-------------------------------------------"
 echo "-------------- End WebHooks ---------------"

@@ -4,6 +4,9 @@ const router = new Router({
     prefix: '/webhooks'
 })
 
+// test 本地测试接口
+router.post('/publish/test', controller.TestPublish)
+
 // project1 websecret
 router.post('/publish/websecret', controller.SecretPublish)
 
