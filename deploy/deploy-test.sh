@@ -7,17 +7,19 @@ echo "++++++++++++ Start WebHooks +++++++++++++++"
 echo "+++++++++++++++++++++++++++++++++++++++++++"
 cd "$1"
 
-echo "pull code from remote repository"
+echo "Pull Start"
+
 git pull
-echo "pull finished and re/start index.js"
+
+echo "Pull Finished"
 
 PIDS=`ps -ef|grep "$1/$2.js"|grep -v grep`
 if [ "$PIDS" != "" ]; then
 pm2 restart "$2.js"
-echo "service restart!"
+echo "Service Restarted!"
 else
 pm2 start "$2.js"
-echo "service started!"
+echo "Service Started!"
 
 echo "-------------------------------------------"
 echo "-------------- End WebHooks ---------------"
